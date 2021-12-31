@@ -1,0 +1,24 @@
+{
+  "name": "apprestapi",
+  "version": "1.0.0",
+  "description": "Application Rest API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muhammad-Achir/apprestapi.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "node.js"
+  ],
+  "author": "Achir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Muhammad-Achir/apprestapi/issues"
+  },
+  "homepage": "https://github.com/Muhammad-Achir/apprestapi#readme"
+}
