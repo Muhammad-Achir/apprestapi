@@ -5,11 +5,12 @@ const conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'dbrestapi'
+    database: 'dbrestapi',
+    port: 8111
 });
 
 conn.connect((err) => {
-    if (err) throw err;
+    if (err) throw err
     console.log('Mysql connected')
 })
 

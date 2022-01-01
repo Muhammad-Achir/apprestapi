@@ -5,4 +5,7 @@ module.exports = function(app) {
 
     app.route('/')
         .get(myJson.index)
+
+    app.route('/show/')
+        .get(myJson.showDataMahasiswa)
 }
