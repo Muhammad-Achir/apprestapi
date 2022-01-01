@@ -8,12 +8,26 @@ exports.index = function(req, res) {
 }
 
 //show all data mahasiswa
-exports.showDataMahasiswa = function(req, res) {
+exports.showAllDataMahasiswa = function(req, res) {
     connection.query('SELECT * FROM mahasiswa', function(error, rows, fileds) {
         if (error) {
-            connection.log(error)
+            console.log(error)
         } else {
             response.ok(rows, res)
         }
     })
+}
+
+//show all data by id
+exports.showDataMahasiswaById = function(req, res) {
+    let id = req.params.id
+    connection.query('SELECT * FROM mahasiswa WHERE id_mahasiswa = ?', [id],
+        function(error, rows, fields) {
+            if (error) {
+                console.log(error)
+            } else {
+                response.ok(rows, res)
+            }
+        }
+    )
 }

@@ -7,5 +7,8 @@ module.exports = function(app) {
         .get(myJson.index)
 
     app.route('/show/')
-        .get(myJson.showDataMahasiswa)
+        .get(myJson.showAllDataMahasiswa)
+
+    app.route('/show/:id')
+        .get(myJson.showDataMahasiswaById)
 }
