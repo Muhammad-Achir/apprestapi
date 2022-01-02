@@ -94,3 +94,7 @@ exports.login = function(req, res) {
         }
     })
 }
+
+exports.anonymousePage = function(req, res) {
+    response.ok("This page just for private page with user role = 2!", res)
+}

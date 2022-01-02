@@ -1,3 +1,3 @@
 module.exports = {
-    'secret': 'my private information'
+    'secret': 'my private information',
 }
