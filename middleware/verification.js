@@ -2,19 +2,21 @@ const jwt = require('jsonwebtoken')
 const config = require('../config/secret')
 
 // add function to chechk roles of user
-function verification(roles) {
+function verification() {
     return function(req, rest, next) {
+        let role = req.body.role;
         // check authorization header
-        var tokenWithBearer = req.headers.authorization
+        let tokenWithBearer = req.headers.authorization
 
         if (tokenWithBearer) {
             let token = tokenWithBearer.split(' ')[1]
 
+            // verification
             jwt.verify(token, config.secret, function(err, decoded) {
                 if (err) {
                     return rest.status(401).send({ auth: false, message: 'Token does not registered' })
                 } else {
-                    if (roles == 2) {
+                    if (role == 2) {
                         req.auth = decoded
                         next()
                     } else {
