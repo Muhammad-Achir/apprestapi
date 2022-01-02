@@ -20,4 +20,7 @@ module.exports = function(app) {
 
     app.route('/delete')
         .delete(myJson.deleteDataById)
+
+    app.route('/show-matakuliah')
+        .get(myJson.showGroupMatakuliah)
 }
