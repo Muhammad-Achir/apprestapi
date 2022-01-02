@@ -11,4 +11,7 @@ module.exports = function(app) {
 
     app.route('/show/:id')
         .get(myJson.showDataMahasiswaById)
+
+    app.route('/add')
+        .post(myJson.addNewData)
 }

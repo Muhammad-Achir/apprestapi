@@ -9,7 +9,7 @@ exports.index = function(req, res) {
 
 //show all data mahasiswa
 exports.showAllDataMahasiswa = function(req, res) {
-    connection.query('SELECT * FROM mahasiswa', function(error, rows, fileds) {
+    connection.query('SELECT * FROM mahasiswa', function(error, rows, fields) {
         if (error) {
             console.log(error)
         } else {
@@ -21,13 +21,27 @@ exports.showAllDataMahasiswa = function(req, res) {
 //show all data by id
 exports.showDataMahasiswaById = function(req, res) {
     let id = req.params.id
-    connection.query('SELECT * FROM mahasiswa WHERE id_mahasiswa = ?', [id],
+    connection.query('SELECT * FROM mahasiswa WHERE id_mahasiswa = ?', [id], function(error, rows, fields) {
+        if (error) {
+            console.log(error)
+        } else {
+            response.ok(rows, res)
+        }
+    })
+}
+
+// add new data
+exports.addNewData = function(req, res) {
+    let nim = req.body.nim
+    let nama = req.body.nama
+    let jurusan = req.body.jurusan
+
+    connection.query('INSERT INTO mahasiswa (nim, nama, jurusan) VALUES(?, ?, ?)', [nim, nama, jurusan],
         function(error, rows, fields) {
             if (error) {
                 console.log(error)
             } else {
-                response.ok(rows, res)
+                response.ok("Succed Add New Data", res)
             }
-        }
-    )
+        })
 }
