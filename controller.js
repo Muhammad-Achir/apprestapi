@@ -47,7 +47,7 @@ exports.addNewData = function(req, res) {
 }
 
 // update data by id
-exports.updateData = function(req, res) {
+exports.updateDataById = function(req, res) {
     let id = req.body.id_mahasiswa
     let nim = req.body.nim
     let nama = req.body.nama
@@ -58,6 +58,19 @@ exports.updateData = function(req, res) {
             console.error();
         } else {
             response.ok("Succed update data", res)
+        }
+    })
+}
+
+// Delete data by id
+exports.deleteDataById = function(req, res) {
+    let id = req.body.id_mahasiswa
+
+    connection.query('DELETE FROM mahasiswa WHERE id_mahasiswa = ?', [id], function(error, rows, fields) {
+        if (error) {
+            console.error();
+        } else {
+            response.ok("Succed Delete data", res)
         }
     })
 }

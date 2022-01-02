@@ -16,5 +16,8 @@ module.exports = function(app) {
         .post(myJson.addNewData)
 
     app.route('/update')
-        .put(myJson.updateData)
+        .put(myJson.updateDataById)
+
+    app.route('/delete')
+        .delete(myJson.deleteDataById)
 }
