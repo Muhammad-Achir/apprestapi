@@ -45,3 +45,19 @@ exports.addNewData = function(req, res) {
             }
         })
 }
+
+// update data by id
+exports.updateData = function(req, res) {
+    let id = req.body.id_mahasiswa
+    let nim = req.body.nim
+    let nama = req.body.nama
+    let jurusan = req.body.jurusan
+
+    connection.query('UPDATE mahasiswa SET nim = ?, nama = ?,jurusan = ? WHERE id_mahasiswa = ?', [nim, nama, jurusan, id], function(error, rows, fields) {
+        if (error) {
+            console.error();
+        } else {
+            response.ok("Succed update data", res)
+        }
+    })
+}
